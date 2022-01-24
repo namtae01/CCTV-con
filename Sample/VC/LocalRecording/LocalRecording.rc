@@ -1,0 +1,279 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\LocalRecording.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\LocalRecording.ico"
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About LocalRecording"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "LocalRecording, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_LOCALRECORDING_DIALOG DIALOGEX 0, 0, 411, 413
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "LocalRecording"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Local Recording",IDC_BUTTON_START_RECORDING,247,261,71,16
+    PUSHBUTTON      "Stop Recording",IDC_BUTTON_STOP_RECORDING,324,261,70,16
+    CONTROL         "SEC",IDC_RADIO_SEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,266,295,28,10
+    CONTROL         "REC",IDC_RADIO_REC,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,309,295,27,10
+    CONTROL         "AVI",IDC_RADIO_AVI,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,351,295,27,10
+    PUSHBUTTON      "Play (REC File)",IDC_BUTTON_PLAY_RECORDING,247,315,147,18
+    PUSHBUTTON      "Convert REC to AVI",IDC_BUTTON_REC2AVI,247,339,147,18
+    COMBOBOX        IDC_COMBO_MODEL_LIST,301,18,93,17,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_IPADDRESS1,"SysIPAddress32",WS_GROUP | WS_TABSTOP,301,51,93,16
+    EDITTEXT        IDC_EDIT_PORT,301,70,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PORT2,301,89,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_USER_ID,301,108,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,301,127,93,16,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,247,147,71,14
+    PUSHBUTTON      "DisConnect",IDC_BUTTON_DISCONNECT,324,147,70,14
+    PUSHBUTTON      "Play",IDC_BUTTON_PLAY,247,164,71,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,324,164,70,14
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,7,17,223,143
+    GROUPBOX        "- Connect Info -",IDC_STATIC_CONNECTINFO_GROUP,239,3,165,183
+    LTEXT           "Model",IDC_STR_MODEL,247,20,47,9
+    LTEXT           "IP",IDC_STR_IP,247,55,47,9
+    LTEXT           "VNP Port",IDC_STR_PORT,247,74,47,9
+    LTEXT           "User ID",IDC_STR_USER_ID,247,112,47,9
+    LTEXT           "Password",IDC_STR_PASSWORD,247,131,47,9
+    LISTBOX         IDC_LIST_STATUS_MESSAGE,7,191,387,47,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ActiveX Control Log",IDC_STR_STATUS,7,180,81,8
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL_RECORDING,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,13,257,217,142
+    GROUPBOX        "Local Recording",IDC_STATIC,7,243,397,163
+    CONTROL         "",IDC_XNSSDKDEVICECTRL,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,208,166,22,10
+    GROUPBOX        "Recording Type",IDC_STATIC,247,282,147,29
+    LTEXT           "Protocol",IDC_STR_MODEL2,247,39,47,9
+    LTEXT           "HTTP Port",IDC_STR_PORT2,247,94,47,9
+    CONTROL         " SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,302,38,43,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "LocalRecording.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "LocalRecording.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_LOCALRECORDING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 404
+        VERTGUIDE, 13
+        VERTGUIDE, 230
+        VERTGUIDE, 239
+        VERTGUIDE, 247
+        VERTGUIDE, 254
+        VERTGUIDE, 318
+        VERTGUIDE, 324
+        VERTGUIDE, 330
+        VERTGUIDE, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 406
+        HORZGUIDE, 150
+        HORZGUIDE, 208
+        HORZGUIDE, 214
+        HORZGUIDE, 225
+        HORZGUIDE, 269
+        HORZGUIDE, 367
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LOCALRECORDING_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKWINDOWCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x22a0, 0x0000, 0x17fa, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKWINDOWCTRL_RECORDING, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x21b1, 0x0000, 0x17e0, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKDEVICECTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x0369, 0x0000, 0x01a7, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About LocalRecording..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\LocalRecording.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

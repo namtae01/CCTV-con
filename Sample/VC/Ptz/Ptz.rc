@@ -1,0 +1,333 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\Ptz.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Ptz.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_PRESET DIALOGEX 0, 0, 213, 257
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Preset"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Delete",ID_DELETE,102,236,50,14
+    PUSHBUTTON      "Delete All",ID_DELETE_ALL,157,236,50,14
+    CONTROL         "",IDC_LIST_PRESET,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,199,206
+    COMBOBOX        IDC_COMBO_PRESET_INDEX,7,217,49,12,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PRESET_NAME,67,218,83,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Save",ID_SAVE,156,217,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_PRESET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 250
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Ptz"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "Ptz, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011 Hanwha Techwin",IDC_STATIC,42,26,126,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_PTZ_DIALOG DIALOGEX 0, 0, 343, 436
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "CCTV"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Disconnect",IDC_BUTTON_DISCONNECT,105,306,50,14,NOT WS_VISIBLE
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,7,7,324,221
+    EDITTEXT        IDC_EDIT_LOG_WIN,7,342,324,89,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    PUSHBUTTON      "?",IDC_BUTTON_UP,234,255,23,18
+    PUSHBUTTON      "?",IDC_BUTTON_UPRIGHT,259,255,23,18
+    PUSHBUTTON      "?",IDC_BUTTON_RIGHT,259,273,23,18,BS_FLAT
+    PUSHBUTTON      "?",IDC_BUTTON_DOWNRIGHT,259,291,23,18
+    PUSHBUTTON      "?",IDC_BUTTON_DOWN,234,291,24,18
+    PUSHBUTTON      "?",IDC_BUTTON_DOWNLEFT,210,291,24,18
+    PUSHBUTTON      "?",IDC_BUTTON_LEFT,210,273,24,18
+    PUSHBUTTON      "?",IDC_BUTTON_UPLEFT,210,255,24,18
+    PUSHBUTTON      "+",IDC_BUTTON_ZOOM_IN,51,254,26,27
+    GROUPBOX        "PTZ Control",IDC_GRP_CONNECT2,163,235,166,100
+    PUSHBUTTON      "-",IDC_BUTTON_ZOOM_OUT,109,254,26,27
+    CONTROL         "",IDC_SLIDER_PTZ_SPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,231,316,72,12
+    LTEXT           "PTZ Speed",IDC_STATIC,191,316,42,12
+    PUSHBUTTON      "snapshot",IDC_BUTTON_SNAP,15,303,140,22
+    LTEXT           "Status log",IDC_STATIC,7,328,60,12,NOT WS_VISIBLE
+    CONTROL         "",IDC_XNSSDKDEVICECTRL,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",NOT WS_VISIBLE | WS_TABSTOP,90,231,44,17
+    EDITTEXT        IDC_EDIT_ZOOM,139,233,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_TILT,109,233,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_PAN,79,233,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    PUSHBUTTON      "Set PTZ Pulse",IDC_BUTTON_SET_PTZ,99,212,70,18,NOT WS_VISIBLE
+    PUSHBUTTON      "Get PTZ Pulse",IDC_BUTTON_GET_PTZ,21,212,71,18,NOT WS_VISIBLE
+    CONTROL         "Area Zoom",IDC_CHECK_AREAZOOM,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,87,303,48,12
+    PUSHBUTTON      "ENTER",IDC_BUTTON_MENU_ENTER,144,204,30,10,NOT WS_VISIBLE
+    PUSHBUTTON      "Zoom 1X",IDC_BUTTON_ZOOM_1X,136,300,36,18,NOT WS_VISIBLE
+    COMBOBOX        IDC_COMBO_AUTOPAN,126,281,45,15,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Pan / Tilt / Zoom :",IDC_STATIC,14,201,58,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_ZOOM2,134,199,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_TILT2,104,199,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_PAN2,74,199,29,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    PUSHBUTTON      "Set PTZ Normalize",IDC_BUTTON_SET_PTZ_NORMALIZE,94,175,70,18,NOT WS_VISIBLE
+    PUSHBUTTON      "Get PTZ Normalize",IDC_BUTTON_GET_PTZ_NORMALIZE,16,175,71,18,NOT WS_VISIBLE
+    LTEXT           "Pan / Tilt / Zoom :",IDC_STATIC,48,251,58,12,NOT WS_VISIBLE
+    LTEXT           "Auto pan",IDC_STATIC,90,284,32,12,NOT WS_VISIBLE
+    LTEXT           "Scan",IDC_STATIC,16,284,19,12,NOT WS_VISIBLE
+    PUSHBUTTON      "Preset",IDC_BUTTON_PRESET,15,300,67,17,NOT WS_VISIBLE
+    COMBOBOX        IDC_COMBO_AUTOSCAN,37,281,45,15,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "CANCEL",IDC_BUTTON_MENU_CANCEL,219,196,30,9,NOT WS_VISIBLE
+    PUSHBUTTON      "RIGHT",IDC_BUTTON_MENU_RIGHT,174,195,30,10,NOT WS_VISIBLE
+    PUSHBUTTON      "DOWN",IDC_BUTTON_MENU_DOWN,144,195,30,10,NOT WS_VISIBLE
+    PUSHBUTTON      "LEFT",IDC_BUTTON_MENU_LEFT,114,195,30,10,NOT WS_VISIBLE
+    COMBOBOX        IDC_COMBO_MODEL_LIST,136,31,121,12,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "VNP Port",IDC_STATIC,102,80,30,12,NOT WS_VISIBLE
+    LTEXT           "ID",IDC_STATIC,102,110,18,12,NOT WS_VISIBLE
+    LTEXT           "PW",IDC_STATIC,102,125,18,12,NOT WS_VISIBLE
+    GROUPBOX        "Connection Info",IDC_STATIC_GRP_CONN,93,16,166,145,NOT WS_VISIBLE
+    LTEXT           "IP",IDC_STATIC,103,64,18,12,NOT WS_VISIBLE
+    GROUPBOX        "Menu Control",IDC_GRP_CONNECT3,92,164,167,56,NOT WS_VISIBLE
+    CONTROL         "Menu On/Off",IDC_CHECK_MENU_ON,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,102,173,60,12
+    PUSHBUTTON      "UP",IDC_BUTTON_MENU_UP,144,185,30,10,NOT WS_VISIBLE
+    LTEXT           "Protocol",IDC_STATIC,103,49,27,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_PORT2,137,94,119,12,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "HTTP Port",IDC_STATIC,103,96,33,12,NOT WS_VISIBLE
+    CONTROL         " SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,136,49,43,10
+    LTEXT           "Model",IDC_STATIC,103,34,18,12,NOT WS_VISIBLE
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",NOT WS_VISIBLE | WS_TABSTOP,137,63,119,12
+    EDITTEXT        IDC_EDIT_PORT,137,79,119,12,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_ID,137,109,119,12,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_PW,137,124,119,12,ES_PASSWORD | ES_AUTOHSCROLL | NOT WS_VISIBLE
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,136,141,50,14,NOT WS_VISIBLE
+    GROUPBOX        "Zoom",IDC_GRP_CONNECT4,17,239,138,51
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_PTZ_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 331
+        RIGHTMARGIN, 335
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 404
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "Ptz.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "Ptz.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PTZ_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKWINDOWCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x323b, 0x0000, 0x251b, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKDEVICECTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x06d2, 0x0000, 0x02e5, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About Ptz..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\Ptz.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

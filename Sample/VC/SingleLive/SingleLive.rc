@@ -1,0 +1,269 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\SingleLive.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SingleLive.ico"
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SingleLive"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "SingleLive, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011 Hanwha Techwin",IDC_STATIC,42,26,126,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_SINGLELIVE_DIALOG DIALOGEX 0, 0, 509, 399
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "SingleLive"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+	CONTROL         "",IDC_XNSSDKDEVICECTRL,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,326,275,30,10
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,6,7,350,262
+    COMBOBOX        IDC_COMBO_MODEL_LIST,410,22,83,166,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,38,41,14
+	COMBOBOX        IDC_COMBO_PROTOCOL_LIST,453,39,40,166,CBS_DROPDOWN | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+	CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_GROUP | WS_TABSTOP,410,57,83,12
+    EDITTEXT        IDC_EDIT_PORT,410,77,83,12,ES_AUTOHSCROLL
+	EDITTEXT        IDC_EDIT_PORT2,410,95,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ID,410,113,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PW,410,129,83,12,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,372,153,50,14
+    PUSHBUTTON      "Disconnect",IDC_BUTTON_DISCONNECT,444,153,50,14
+    COMBOBOX        IDC_COMBO_CHANNEL,416,185,77,141,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+	COMBOBOX        IDC_COMBO_PROFILE,415,202,78,141,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN,372,219,50,14
+    PUSHBUTTON      "Start",IDC_BUTTON_PLAY,443,219,50,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,371,238,50,14
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE,443,238,50,14
+    PUSHBUTTON      "Snapshot (BMP)",IDC_BUTTON_SNAPSHOT_BMP,372,257,62,14
+    PUSHBUTTON      "Jpeg",IDC_BUTTON_SNAPSHOT_JPEG,443,257,50,14
+    EDITTEXT        IDC_EDIT_LOG_WIN,7,286,495,107,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+    GROUPBOX        "Connection Info",IDC_STATIC_GRP_CONN,364,7,138,142
+    LTEXT           "Model",IDC_STATIC,370,25,18,12
+	LTEXT           "Protocol",IDC_STATIC,369,41,27,8
+	LTEXT           "IP",IDC_STATIC,370,61,18,12
+    LTEXT           "Device Port",IDC_STATIC,369,78,37,12
+    LTEXT           "HTTP Port",IDC_STATIC,369,95,32,12
+	LTEXT           "ID",IDC_STATIC,369,114,18,12
+    LTEXT           "PW",IDC_STATIC,369,132,18,12
+    GROUPBOX        "Live Control",IDC_STATIC_GRP_LIVE,364,175,138,104
+    LTEXT           "Channel",IDC_STATIC,372,186,30,12
+    LTEXT           "Profile",IDC_STATIC,372,204,30,12
+    LTEXT           "Status log",IDC_STATIC,7,276,60,9
+    
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "SingleLive.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "SingleLive.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_SINGLELIVE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 502
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 392
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SINGLELIVE_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKDEVICECTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x04a7, 0x0000, 0x01a7, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKWINDOWCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x3643, 0x0000, 0x2c07, 0x0000, 0x0000, 
+0x0000, 
+    IDC_COMBO_PROTOCOL_LIST, 0x403, 4, 0
+0x4354, 0x0050, 
+    IDC_COMBO_PROTOCOL_LIST, 0x403, 4, 0
+0x4455, 0x0050, 
+    IDC_COMBO_PROTOCOL_LIST, 0x403, 10, 0
+0x554d, 0x544c, 0x4349, 0x5341, 0x0054, 
+    IDC_COMBO_PROTOCOL_LIST, 0x403, 5, 0
+0x5448, 0x5054, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About SingleLive..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\SingleLive.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

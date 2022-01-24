@@ -1,0 +1,731 @@
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  Copyright(c) 2012 by Hanwha Techwin, Inc.                                          -->
+<!--                                                                                      -->
+<!--  This software is copyrighted by, and is the sole property of Hanwha Techwin.       -->
+<!--  All rights, title, ownership, or other interests in the software remain the         -->
+<!--  property of Hanwha Techwin. This software may only be used in accordance with      -->
+<!--  the corresponding license agreement. Any unauthorized use, duplication,             -->
+<!--  transmission, distribution, or disclosure of this software is expressly             -->
+<!--  forbidden.                                                                          -->
+<!--                                                                                      -->
+<!--  This Copyright notice may not be removed or modified without prior written          -->
+<!--  consent of Hanwha Techwin.                                                         -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin reserves the right to modify this software without notice.          -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin, Inc.                                                               -->
+<!--  KOREA                                                                               -->
+<!--  http://www.samsungtechwin.co.kr                                                     -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  @ File Name : PlayBack.html                                                         -->
+<!--  @ File Description : PlayBack Source Code File.                                     -->
+<!--                       Define the entire function.                                    -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<HTML>
+<!--  BODY //////////////////////////////////////////////////////////////////////////////	-->
+<BODY onLoad="window_onload()" onUnload="window_onUnload()">
+
+<TABLE cellSpacing=1 cellPadding=1 width="75%" border=0>
+  
+  <TR>
+    <TD vAlign=top align=left>
+      <TABLE style="WIDTH: 120px; HEIGHT: 363px" cellSpacing=1 cellPadding=1 width=120 border=0>
+        
+        <TR>
+          <TD>
+            <TABLE>
+              
+              <TR>
+                <TD>
+                  <DIV align=left>Model</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=SRD-165X name=ModelList></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>IP</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=192.168.0.131 name=IPAddr></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>VNP Port</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=554 name=PortNum></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>ID</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=1 name=UserID></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Password</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" type=password size=14 value=1 name=Password></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Connect() type=button value=Connect name=Connect></DIV></TD>		
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Disconnect() type=button value=Disconnect name=Disconnect></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Year</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=2011 name=Year></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Month</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value=6 name=Month></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Day</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value="" name=Day></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_SearchCalendar() type=button value=SearchCalendar name=SearchCalendar></DIV></TD>
+        	    <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_SearchDay() type=button value=SearchDay name=SearchDay></DIV></TD></TR>
+        	  <TR>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Timeline</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 22px" size=13 value="" name=Timeline></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Play() type=button value=Play name=Play></DIV></TD>
+        	    <TD>
+                  <DIV align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Stop() type=button value=Stop name=Stop></DIV></TD></TR></TABLE></TD></TR>                  
+        <TR>
+          <TD></TD></TR></TABLE></TD>
+    <TD vAlign=top align=left>
+      
+<!--  Define Xns Control ////////////////////////////////////////////////////////////////	-->
+<OBJECT ID=XnsSdkWindow width=320 height=240 classid="clsid:C3F99E59-433D-4A79-A188-B36ACE8F78F8"></OBJECT>
+<OBJECT ID=XnsSdkDevice height=10 width=10 classid="clsid:9BED9251-E8E7-4B67-B281-ADC06BA7988D"></OBJECT>
+
+<!--  SCRIPT ////////////////////////////////////////////////////////////////////////////	-->
+<script language="javascript">
+
+var Model;
+var IpAddress;
+var Port;
+var ID;
+var PW;
+
+var hDevice;
+var nControlID = 0;
+var hMediaSource = 0;
+var nError = 0;
+var strLog;
+
+var nYear;
+var nMonth;
+var nDay;
+var StartTime = Array();
+var EndTime = Array();
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// XnsSdkDevice Message
+// ----------------------------------------------------------------------- 
+function WLOGD(strLog)
+{
+	var Temp = LogArea.value + "\n" + "[XnsSdkDevice]" + strLog;
+	LogArea.value = Temp; 
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// XnsSdkWindow Message
+// ----------------------------------------------------------------------- 
+function WLOGW(strLog)
+{
+	var Temp = LogArea.value + "\n" + "[XnsSdkWindow]" + strLog;
+	LogArea.value = Temp; 
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ JavaScript Window Load Event.
+// ----------------------------------------------------------------------- 
+function window_onload()
+{
+	hDevice = 0;
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the DLL files. 
+	// For this, XnsActiveX library requires config.xml, device.xml, 
+	// and xns.xml files and the DLL file list should be mentioned 
+	// in Xns.xml file. The path of the DLL file can not exceed 512 bytes
+	// in length. The XnsActiveX library searches for xns.xml using 
+	// XnsSDKDevice.ocx installed in "{$SDK path}\Config" folder.
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.Initialize();
+	WLOGD("Initialize():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the XnsSdkWindow control. 
+	// Namely, this will specify the window handle in order to display 
+	// images on the screen. 
+	// -----------------------------------------------------------------------
+	nError = XnsSdkWindow.Initialize(0, 0);  
+	WLOGW("Initialize():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ JavaScript Window Unload Event.
+// ----------------------------------------------------------------------- 
+function window_onUnload()
+{
+	XnsSdkDevice.ReleaseDevice(hDevice);
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Device Connect Function.
+// ----------------------------------------------------------------------- 
+function Do_Connect()
+{	
+	Model		= ModelList.value;
+	IpAddress	= IPAddr.value;
+	Port		= PortNum.value;
+	ID			= UserID.value;
+	PW			= Password.value;
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Assigns memory space for saving device information. 
+	// This function will return the device handle, which the application 
+	// can use to control the device.
+	// [in] Device ID The value should be a greater integer than 0.
+	// Minimum value: 1 , Maximum value: 3000
+	// -----------------------------------------------------------------------
+	if(hDevice == 0)
+	{
+		hDevice = XnsSdkDevice.CreateDevice(1);
+		if(hDevice == 0)
+		{
+			WLOGD("CreateDevice() fail");
+			return;	
+		}
+	}
+               
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Sets the device information so that the application can connect 
+	// to the device.
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.SetConnectionInfo(hDevice, "Samsung", Model, 1, IpAddress, Port, 0, ID, PW);        
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Enables the application to connect to the device using the connection 
+	// information. You can use SetConnectionInfo() to configure the 
+	// connection settings. This function performs as non-blocking function, 
+	// and will be returned immediately even if the connection is not 
+	// completed. The connection result will be transferred through the event. 
+	// When connection is made successfully, the OnDeviceStatusChanged() event
+	// will occur. When failed, the OnConnectFailed event occurs.
+	// -----------------------------------------------------------------------    
+	nError = XnsSdkDevice.ConnectNonBlock(hDevice, false, false);
+	WLOGD("ConnectNonBlock():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Device DisConnect Function.
+// ----------------------------------------------------------------------- 
+function Do_Disconnect()
+{
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Check if there exists stream source.
+	// -----------------------------------------------------------------------
+	if(XnsSdkWindow.IsMedia() == 1)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Stops receiving the stream data from the media source handle.
+		// -----------------------------------------------------------------------
+		hMediaSource = XnsSdkWindow.Stop();
+	}
+
+	if(hMediaSource != 0)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Terminates transferring media stream data from the device. The media
+		// stream data will be separated by hMediaSource
+		// (i.e., phMediaSource of OpenMedia()).
+		// -----------------------------------------------------------------------
+		XnsSdkDevice.CloseMedia(hDevice, hMediaSource);
+		hMediaSource = 0;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Disconnects from the device.
+	// -----------------------------------------------------------------------	
+	nError = XnsSdkDevice.Disconnect(hDevice);
+	WLOGD("Disconnect():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Search Calendar Function.
+// ----------------------------------------------------------------------- 
+function Do_SearchCalendar()
+{
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD("Not Connected..");
+		return;
+	}
+	
+	nYear = Year.value;
+	if(nYear == "")
+	{
+		WLOGD("Empty Year..");
+		return;
+	}
+	
+	nMonth = Month.value;
+	if(nMonth == "")
+	{
+		WLOGD("Empty Month..");
+		return;
+	}
+
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Converts the date (MM/DD/YY) and time (HH:MM:SS) to the time_t format.
+	// -----------------------------------------------------------------------	
+	var TargetMonth = XnsSdkDevice.DateToTimet(nYear, nMonth, 1, 0, 0, 0);
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Covert local time to UTC time.
+	// -----------------------------------------------------------------------
+	TargetMonth = XnsSdkDevice.LocalTimeToDeviceUTC(hDevice, TargetMonth);
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Acquires the permission to play the recorded multimedia.
+	// The application should acquire the permission using this function
+	// before it can play video.
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.AcquireMediaAuthority(hDevice);
+	if(nError != 0)
+	{
+		WLOGD("AcquireMediaAuthority() fail. errorcode =" + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+		return;
+	}
+	WLOGD("Search Calendar, target year=" + nYear + " month=" + nMonth);
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Gets the video recording dates from a specific month. The result of
+	// this function can be obtained from the OnSearchCalendar event.
+ 	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.SearchCalendar(hDevice, nControlID, TargetMonth);
+
+	if(nError != 0)
+	{
+		WLOGD("SearchCalendar() fail. errorcode =" + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+		return;
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Search Day Function.
+// ----------------------------------------------------------------------- 
+function Do_SearchDay()
+{
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD("Not Connected..");
+		return;
+	}
+	
+	if(nYear == "" || nMonth == "")
+	{
+		WLOGD("Empty Year or Month..");
+		return;
+	}
+	
+	nDay = Day.value;
+	if(nDay == "")
+	{
+		WLOGD("Empty Day..");
+		return;
+	}
+	
+	var tStart;
+	var tEnd;
+	var tUTCStart;
+	var tUTCEnd;
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Gets the video recording dates from a specific month.
+	// The result of this function can be obtained from the OnSearchCalendar event.
+	// Return Value : Converted values in time_t format.
+	// -----------------------------------------------------------------------
+	tStart = XnsSdkDevice.DateToTimet(nYear, nMonth, nDay, 0, 0, 0);
+	tEnd = XnsSdkDevice.DateToTimet(nYear, nMonth, nDay, 23, 59, 59);
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Converts local t_time to UTC t_time.
+	// Return Value : UTC time_t value.
+	// -----------------------------------------------------------------------
+	tUTCStart = XnsSdkDevice.LocalTimeToDeviceUTC(hDevice, tStart);
+	tUTCEnd = XnsSdkDevice.LocalTimeToDeviceUTC(hDevice, tEnd);
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Gets a list of recording data for a specific day.
+	// The result of this function can be obtained from the OnSearchDay event.
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.SearchDay(hDevice, nControlID, tUTCStart, tUTCEnd, 255);
+	if(nError != 0)
+	{
+		WLOGD("SearchDay() fail. errorcode =" + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+		return;
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Play Video Function.
+// ----------------------------------------------------------------------- 
+function Do_Play()
+{
+	if(nControlID == 0)
+	{
+		WLOGD("No record list..");
+		return;
+	}
+	
+	if(hMediaSource != 0)
+	{
+		WLOGD("Already Media Play..");
+		return;
+	}
+	
+	var nIndex = Timeline.value;
+	if(StartTime[nIndex] == null || EndTime[nIndex] == null)
+	{
+		WLOGD("Timeline Failed..");
+		return;
+	}
+	
+	var tStart = XnsSdkDevice.LocalTimeToDeviceUTC(hDevice, StartTime[nIndex]);
+	var tEnd = XnsSdkDevice.LocalTimeToDeviceUTC(hDevice, EndTime[nIndex]);
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Returns the capabilities of the control module.
+	// -----------------------------------------------------------------------
+	hMediaSource = XnsSdkDevice.OpenMediaEx(hDevice, nControlID, 2, tStart, tEnd);
+	if(hMediaSource == 0)
+	{
+		WLOGD("Media Open Failed..");
+		return hMediaSource;
+	}
+	WLOGD("Media Open Success.");
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Adds the media source handle to XnsSdkWindow.
+	// The media source handle is created by XnsSdkDevice.
+	// If the application calls XnsSdkDevice::OpenMedia(),
+	// it will receive media stream from the device and return the MediaSource handle.
+	// The application uses uses Start() to forward the mediasource handle
+	// to XnsSdkWindow so that XnsSdkWindow can obtain stream data.
+	// -----------------------------------------------------------------------
+	XnsSdkWindow.Start(hMediaSource);
+	WLOGW("Media Play Success.");
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Informs if the media stream is currently playing.
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.Seek(hDevice, nControlID, tStart);
+    
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Plays the multimedia at a specified speed.
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.Play(hDevice, nControlID, 1);
+	if(nError != 0)
+	{
+		WLOGD("Play() fail. errorcode =" + nError + " " + XnsSdkDevice.GetErrorString(nError));
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Stop Video Function.
+// ----------------------------------------------------------------------- 
+function Do_Stop()
+{
+	if(nControlID == 0)
+	{
+		WLOGD("No record list..");
+		return;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Stops playing the media stream temporarily.
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.Pause(hDevice, nControlID);
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Stops receiving the stream data from the media source handle.
+	// -----------------------------------------------------------------------
+	hMediaSource = XnsSdkWindow.Stop();
+    
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Terminates transferring media stream data from the device. The media
+	// stream data will be separated by hMediaSource
+	// (i.e., phMediaSource of OpenMedia()).
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.CloseMedia(hDevice, hMediaSource);
+	hMediaSource = 0;
+}
+
+
+// XNS ACTIVEX EVENT 
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// This event occurs if the device status has changed. It occurs if the
+// application uses Connect() to connect or reconnect to the device after
+// disconnected. When reconnecting, the third argument nDeviceStatus is
+// true, all media must be reopened using ReopenAllStream().
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnDeviceStatusChanged(nDeviceID, nErrorCode, nDeviceStatus, nHddCondition)
+{
+	WLOGD("OnDeviceStatusChanged() EVENT:: device_id=" + nDeviceID + ", status=" + nDeviceStatus + ", error=" + nErrorCode + "[" + XnsSdkDevice.GetErrorString(nErrorCode) + "]");
+	if(nErrorCode != 0 || nDeviceStatus != 1) 
+	{
+		WLOGD("Disconnected...");
+		return;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Returns the capabilities of the control module.
+	// -----------------------------------------------------------------------
+	if (XnsSdkDevice.GetControlCapability(hDevice, 1, 6) != 0)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Returns the number of control modules. 
+		// The application can get the number of specific type of control modules, 
+		// and can get also the whole number of video recorders or cameras.
+		// -----------------------------------------------------------------------
+		var nCount = XnsSdkDevice.GetControlCount(hDevice, 8);
+		var i;
+		for (i = 0; i < nCount; i++)
+		{
+			if (XnsSdkDevice.GetControlCapability(hDevice, i + 2, 38) != 0)
+			{
+				nControlID = i + 2;
+				break;
+			}
+		}
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// If the application has failed in non-blocking connection using ConnectNonBlock(),
+// the OnConnectFailed event occurs.
+// As Connect() returns an immediate error message if failed,
+// it does not trigger this event.
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnConnectFailed(nDeviceID, nErrorCode)
+{
+	WLOGD("OnConnectFailed() EVENT:: device_id=" + nDeviceID + ", error=" + nErrorCode + "[" + XnsSdkDevice.GetErrorString(nErrorCode) + "]");
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// This event occurs if the application calls SearchCalendar(),
+// which contains the search result.
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnSearchCalendar(nDeviceID, nControlID, nRecDay)
+{
+	var nBitFlag = 0x01;
+	var strRec = "";
+	var i;
+	
+	for (i = 0; i < 31; i++)
+	{
+		if(nRecDay & nBitFlag)
+		{
+			strRec = strRec + " 1 ";	
+		}
+		else
+		{
+			strRec = strRec + " 0 ";
+		}
+		nBitFlag <<= 1;
+	}
+	WLOGD("OnSearchCalendar() EVENT:: deviceID=" + nDeviceID + ", recDay=" + nRecDay);
+	WLOGD("01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31");
+	WLOGD(strRec);
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// This event occurs if the application calls SearchDay(),
+// which contains the search result.
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnSearchDay(nDeviceID, nControlID, hTimeline)
+{
+	WLOGD("OnSearchDay() EVENT:: deviceID=" + nDeviceID + ", timeLine=" + hTimeline);
+
+	var nTimelineCount;
+	var nRecType;
+	var nRecId;
+	
+	var tStart, tEnd;
+	
+	var StartHour, StartMin, StartSec;
+	var EndHour, EndMin, EndSec;
+	
+	var i, j;
+	
+	var nCamCount;
+	var nTotalCount = 0;
+	var strType;
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Returns the number of cameras existing in the timeline.
+	// Return Value : Number of the cameras(from those connected in the system)
+	//                that have recording data on a specified date.
+	// -----------------------------------------------------------------------
+	nCamCount = XnsSdkDevice.GetCameraCount(hTimeline);
+	WLOGD ("OnSearchDay() EVENT:: nCamCount[" + nCamCount + "]");
+	for (i = 0; i < nCamCount; i++)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Number of blocks of the recording data in the timeline. 
+		// This value is used as a parameter of functions: 
+		// GetStartTime(), GetEndTime(), GetRecordingType().
+		// Return Value : Number of blocks of the recording data in the timeline. 
+		// -----------------------------------------------------------------------
+		nTimelineCount = XnsSdkDevice.GetTimelineCount(hTimeline, i);
+		for (j = 0; j < nTimelineCount; j++)
+		{
+			// [ XNS ACTIVEX HELP ]
+			// -----------------------------------------------------------------------
+			// Returns information on the recording data block. 
+			// -----------------------------------------------------------------------
+			tStart = XnsSdkDevice.GetTimelineStartTime(hTimeline, i, j, 1);
+			tEnd = XnsSdkDevice.GetTimelineEndTime(hTimeline, i, j, 1);
+			nRecType = XnsSdkDevice.GetTimelineRecType(hTimeline, i, j, 1);
+			nRecId = XnsSdkDevice.GetTimelineRecId(hTimeline, i, j, 1); 
+			
+			StartTime[nTotalCount] = tStart;
+			EndTime[nTotalCount] = tEnd;
+						
+			var dStart = new Date();
+			dStart.setTime(tStart*1000);
+			StartHour = dStart.getUTCHours();
+			StartMin = dStart.getUTCMinutes();
+			StartSec = dStart.getUTCSeconds();
+			if(StartHour < 10)	StartHour = "0" + StartHour;
+			if(StartMin < 10)	StartMin = "0" + StartMin;
+			if(StartSec < 10)	StartSec = "0" + StartSec;
+			
+			var dEnd = new Date();
+			dEnd.setTime(tEnd*1000);
+			EndHour = dEnd.getUTCHours();
+			EndMin = dEnd.getUTCMinutes();
+			EndSec = dEnd.getUTCSeconds();
+			if(EndHour < 10)	EndHour = "0" + EndHour;
+			if(EndMin < 10)		EndMin = "0" + EndMin;
+			if(EndSec < 10)		EndSec = "0" + EndSec;
+			
+			// Print Record File List
+			switch (nRecType)
+			{
+				case 0: //(int)XRecType.REC_TYPE_NONE:
+					strType = "NON";
+					break;
+				case 1: //(int)XRecType.REC_TYPE_MOTION:
+					strType = "MOT";
+					break;
+				case 2: //(int)XRecType.REC_TYPE_ALARM:
+					strType = "ALM";
+					break;
+				case 4: //(int)XRecType.REC_TYPE_VLOSS:
+					strType = "VLS";
+					break;
+				case 8: //(int)XRecType.REC_TYPE_MANUAL:
+					strType = "MAN";
+					break;
+				case 16: //(int)XRecType.REC_TYPE_CONTINUOS:
+					strType = "CON";
+					break;
+				case 255: //(int)XRecType.REC_TYPE_ALL:
+					strType = "ALL";
+					break;
+				default:
+					strType = "OTH";
+					break;
+			}
+
+			WLOGD("Timeline : " + nTotalCount + ", " + strType + " | " + StartHour + ":" + StartMin + ":" + StartSec + " - " + EndHour + ":" + EndMin + ":" + EndSec);
+			nTotalCount++;
+		}
+	}
+}
+
+
+</script>   
+
+</TD></TR>
+  <TR>
+    <TD vAlign=top align=left colSpan=2>&nbsp;<TEXTAREA style="WIDTH: 680px; HEIGHT: 120px; overflow-x:auto" name=LogArea rows=30 cols=100></TEXTAREA>&nbsp;&nbsp;
+    </TD></TR></TABLE>
+</BODY>
+</HTML>

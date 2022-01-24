@@ -1,0 +1,5 @@
+C:\work\sample_code\Sample\C#_VS2008\SAMPLELOGLib\bin\Debug\SAMPLELOGLib.dll
+C:\work\sample_code\Sample\C#_VS2008\SAMPLELOGLib\bin\Debug\SAMPLELOGLib.pdb
+C:\work\sample_code\Sample\C#_VS2008\SAMPLELOGLib\obj\Debug\ResolveAssemblyReference.cache
+C:\work\sample_code\Sample\C#_VS2008\SAMPLELOGLib\obj\Debug\SAMPLELOGLib.dll
+C:\work\sample_code\Sample\C#_VS2008\SAMPLELOGLib\obj\Debug\SAMPLELOGLib.pdb

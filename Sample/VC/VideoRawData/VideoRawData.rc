@@ -1,0 +1,261 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\VideoRawData.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\VideoRawData.ico"
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About VideoRawData"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "VideoRawData, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_VIDEO_LOWDATA_DIALOG DIALOGEX 0, 0, 487, 259
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "VideoRawData"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,169,107,137,78
+    COMBOBOX        IDC_COMBO_MODEL_LIST,379,20,93,95,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,379,56,93,16
+    EDITTEXT        IDC_EDIT_PORT,379,76,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ID,379,116,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PW,379,136,93,16,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,325,158,71,14
+    PUSHBUTTON      "DisConnect",IDC_BUTTON_DISCONNECT,402,158,71,14
+    PUSHBUTTON      "Play",IDC_BUTTON_PLAY,325,175,71,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,402,175,71,14
+    GROUPBOX        "- Connect Info -",IDC_STATIC_CONNECTINFO_GROUP,318,7,162,191
+    LTEXT           "Model",IDC_STR_MODEL,325,23,47,9
+    LTEXT           "IP",IDC_STR_IP,325,59,47,9
+    LTEXT           "VNP Port",IDC_STR_PORT,325,79,47,9
+    LTEXT           "User ID",IDC_STR_USER_ID,325,118,47,9
+    LTEXT           "Password",IDC_STR_PASSWORD,325,138,47,9
+    LISTBOX         IDC_LIST_STATUS_MESSAGE,7,205,473,47,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ActiveX Control Log",IDC_STR_STATUS,7,192,81,8
+    CONTROL         "",IDC_XNSSDKDEVICECTRL,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,284,193,22,10
+    CONTROL         "",IDC_BITMAP,"Static",SS_BLACKFRAME | SS_CENTERIMAGE,7,7,152,100
+    CONTROL         "View Raw Video",IDC_CHECK_RAW_VIDEO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,7,71,22
+    LTEXT           "Protocol",IDC_STR_PROTOCOL,325,41,47,9
+    EDITTEXT        IDC_EDIT_PORT2,379,96,93,16,ES_AUTOHSCROLL
+    LTEXT           "HTTP Port",IDC_STR_PORT2,325,98,47,9
+    CONTROL         " SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,380,40,43,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "VideoRawData.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2011-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "VideoRawData.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_VIDEO_LOWDATA_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 480
+        VERTGUIDE, 239
+        VERTGUIDE, 247
+        VERTGUIDE, 254
+        VERTGUIDE, 306
+        VERTGUIDE, 318
+        VERTGUIDE, 324
+        VERTGUIDE, 330
+        VERTGUIDE, 395
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 252
+        HORZGUIDE, 185
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_VIDEO_LOWDATA_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKWINDOWCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x154a, 0x0000, 0x0d20, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKDEVICECTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x0369, 0x0000, 0x01a7, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About VideoRawData..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\VideoRawData.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,694 @@
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  Copyright(c) 2012 by Hanwha Techwin, Inc.                                           -->
+<!--                                                                                      -->
+<!--  This software is copyrighted by, and is the sole property of Hanwha Techwin.        -->
+<!--  All rights, title, ownership, or other interests in the software remain the         -->
+<!--  property of Hanwha Techwin. This software may only be used in accordance with       -->
+<!--  the corresponding license agreement. Any unauthorized use, duplication,             -->
+<!--  transmission, distribution, or disclosure of this software is expressly             -->
+<!--  forbidden.                                                                          -->
+<!--                                                                                      -->
+<!--  This Copyright notice may not be removed or modified without prior written          -->
+<!--  consent of Hanwha Techwin.                                                          -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin reserves the right to modify this software without notice.           -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin, Inc.                                                                -->
+<!--  KOREA                                                                               -->
+<!--  http://www.samsungtechwin.co.kr                                                     -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  @ File Name : PTZ.html                                                              -->
+<!--  @ File Description : PTZ Source Code File.                                          -->
+<!--                       Define the entire function.                                    -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<HTML>
+<!--  BODY ////////////////////////////////////////////////////////////////////////////// -->
+<BODY onLoad="window_onload()" onUnload="window_onUnload()">
+
+<TABLE cellSpacing=1 cellPadding=1 width="75%" border=0>
+  
+  <TR>
+    <TD vAlign=top align=left>
+      <TABLE style="WIDTH: 810px; HEIGHT: 360px" cellSpacing=1 cellPadding=1 border=0>
+        <TR>
+          <TD>
+            <TABLE>
+              <TR>
+                <TD>
+                  <DIV align=left>Model</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 235px; HEIGHT: 22px" size=13 value="Samsung Network Camera/Encoder" name=ModelList></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>IP</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 235px; HEIGHT: 22px" size=13 value=192.168.216.208 name=IPAddr></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>VNP Port</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 235px; HEIGHT: 22px" size=13 value=4520 name=PortNum></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>ID</DIV></TD>
+                <TD>
+                  <DIV align=left><INPUT style="WIDTH: 235px; HEIGHT: 22px" size=13 value=admin name=UserID></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>Password &nbsp;</DIV></TD>
+                <TD>
+                  <INPUT style="WIDTH: 235px; HEIGHT: 22px" type=password size=13 value=5eogus!! name=Password></DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=right><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Connect() type=button value=Connect name=Connect></span>
+                  <span>&nbsp;</span>
+                  <span align=right><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_Disconnect() type=button value=Disconnect name=Disconnect></span></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                   <span align=right><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_MediaOpen() type=button value="Media Open" name=Open></span>
+                   <span>&nbsp;</span>
+                   <span align=right><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_MediaClose() type=button value="Media Close" name=Close></span></TD></TR>
+              <TR>
+				<TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_PlayVideo() type=button value="Play Video" name=Play></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px" onclick=Do_StopVideo() type=button value="Stop Video" name=Stop></span></TD></TR>
+			  <TR>
+			  <TD>
+                  <DIV align=left>&nbsp;</DIV></TD></TR>
+			  <TR>
+			    <TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+			    <TD>
+                  <DIV align=left>PTZ Control</DIV></TD></TR>
+			  <TR>
+			    <TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 105px; HEIGHT: 25px; font-size:8pt" onclick=Do_GetPtzPosNormalize() type=button value="Get PTZ Position" name=GetPtzPosNormalize></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 110px; HEIGHT: 25px; font-size:8pt" onclick=Do_SetPtzPosNormalize() type=button value="Set PTZ Position" name=SetPtzPosNormalize></span></TD></TR>
+			  <TR>
+                <TD>
+                  <DIV align=left style="font-size:10pt">Pan / Tilt / Zoom :</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 25px" size=13 name=Pan></span>
+				  <span>&nbsp;</span>
+				  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 25px" size=13 name=Tilt></span>
+				  <span>&nbsp;</span>
+				  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 25px" size=13 name=Zoom></span></TD></TR>
+			  <TR>
+				<TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_UpLeft() type=button value="↖" name=Ptz_UpLeft></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_Up() type=button value="↑" name=Ptz_Up></span>
+				  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_UpRight() type=button value="↗" name=Ptz_UpRight></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 26px; HEIGHT: 30px" onclick=Do_Ptz_ZoomIn() type=button value="+" name=Ptz_ZoomIn></span>
+				  <span align=left><INPUT style="WIDTH: 26px; HEIGHT: 30px" onclick=Do_Ptz_ZoomOut() type=button value="-" name=Ptz_ZoomOut></TD></TR>
+			  <TR>
+				<TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_Left() type=button value="←" name=Ptz_Left></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_Stop() type=button value="||" name=Ptz_Stop></span>
+				  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_Right() type=button value="→" name=Ptz_Right></span></TD></TR>
+			  <TR>
+				<TD>
+                  <DIV align=left>&nbsp;</DIV></TD>
+                <TD>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_DownLeft() type=button value="↙" name=Ptz_DownLeft></span>
+                  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_Down() type=button value="↓" name=Ptz_Down></span>
+				  <span>&nbsp;</span>
+                  <span align=left><INPUT style="WIDTH: 45px; HEIGHT: 30px" onclick=Do_Ptz_DownRight() type=button value="↘" name=Ptz_DownRight></span></TD></TR>
+			</TABLE>
+		  </TD>	      
+
+
+    <TD vAlign=top align=left>
+      
+<!--  Define Xns Control ////////////////////////////////////////////////////////////////	-->
+<OBJECT ID=XnsSdkWindow width=400 height=300 classid=clsid:C3F99E59-433D-4A79-A188-B36ACE8F78F8></OBJECT>
+<OBJECT ID=XnsSdkDevice height=10 width=10 classid=clsid:9BED9251-E8E7-4B67-B281-ADC06BA7988D></OBJECT>
+
+<!--  SCRIPT ////////////////////////////////////////////////////////////////////////////	-->
+<script language="javascript">
+var Model;
+var IpAddress;
+var Port;
+var ID;
+var PW;
+
+var hDevice;
+var hMediaSource = 0;
+var nControlID = 0;
+var nPtzSpeed = 50;
+var nError;
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// XnsSdkDevice Message
+// ----------------------------------------------------------------------- 
+function WLOGD(strLog)
+{
+	var Temp = LogArea.value + "\n" + "[XnsSdkDevice]" + strLog;
+	LogArea.value = Temp; 
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// XnsSdkWindow Message
+// ----------------------------------------------------------------------- 
+function WLOGW(strLog)
+{
+	var Temp = LogArea.value + "\n" + "[XnsSdkWindow]" + strLog;
+	LogArea.value = Temp; 
+}
+
+
+//[ XNS ACTIVEX HELP ]
+//-----------------------------------------------------------------------
+//@ JavaScript Window Load Event.
+//----------------------------------------------------------------------- 
+function window_onload()
+{
+	hDevice = 0;
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the DLL files. 
+	// For this, XnsActiveX library requires config.xml, device.xml, 
+	// and xns.xml files and the DLL file list should be mentioned 
+	// in Xns.xml file. The path of the DLL file can not exceed 512 bytes
+	// in length. The XnsActiveX library searches for xns.xml using 
+	// XnsSDKDevice.ocx installed in "{$SDK path}\Config" folder.
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.Initialize();
+	WLOGD("Initialize():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");	
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the XnsSdkWindow control. 
+	// Namely, this will specify the window handle in order to display 
+	// images on the screen. 
+	// -----------------------------------------------------------------------
+	nError = XnsSdkWindow.Initialize(0, 0);
+	WLOGW("Initialize():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");	
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ JavaScript Window Unload Event.
+// ----------------------------------------------------------------------- 
+function window_onUnload()
+{
+	WLOGD("ReleaseDevice()")
+  	XnsSdkDevice.ReleaseDevice(hDevice);
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Device Connect Function.
+// ----------------------------------------------------------------------- 
+function Do_Connect()
+{	
+	Model		= ModelList.value;
+	IpAddress	= IPAddr.value;
+	Port		= PortNum.value;
+	ID			= UserID.value;
+	PW			= Password.value;
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Assigns memory space for saving device information. 
+	// This function will return the device handle, which the application 
+	// can use to control the device.
+	// [in] Device ID The value should be a greater integer than 0.
+	// Minimum value: 1 , Maximum value: 3000
+	// -----------------------------------------------------------------------
+	if(hDevice == 0)
+	{
+		hDevice = XnsSdkDevice.CreateDevice(1);
+		if(hDevice == 0)
+		{
+			WLOGD("CreateDevice() fail");
+			return;
+		}
+	}
+               
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Sets the device information so that the application can connect 
+	// to the device.
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.SetConnectionInfo(hDevice, "Samsung", Model, 1, IpAddress, Port, 0, ID, PW);        
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Enables the application to connect to the device using the connection 
+	// information. You can use SetConnectionInfo() to configure the 
+	// connection settings. This function performs as non-blocking function, 
+	// and will be returned immediately even if the connection is not 
+	// completed. The connection result will be transferred through the event. 
+	// When connection is made successfully, the OnDeviceStatusChanged() event
+	// will occur. When failed, the OnConnectFailed event occurs.
+	// -----------------------------------------------------------------------    
+	nError = XnsSdkDevice.ConnectNonBlock(hDevice, false, false);
+	WLOGD("ConnectNonBlock():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Device DisConnect Function.
+// ----------------------------------------------------------------------- 
+function Do_Disconnect()
+{
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Check if there exists stream source.
+	// -----------------------------------------------------------------------
+	if(XnsSdkWindow.IsMedia() == 1)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Stops receiving the stream data from the media source handle.
+		// -----------------------------------------------------------------------
+		hMediaSource = XnsSdkWindow.Stop();
+	}
+
+	if(hMediaSource != 0)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Terminates transferring media stream data from the device. The media
+		// stream data will be separated by hMediaSource
+		// (i.e., phMediaSource of OpenMedia()).
+		// -----------------------------------------------------------------------
+		XnsSdkDevice.CloseMedia(hDevice, hMediaSource);
+		hMediaSource = 0;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Disconnects from the device.
+	// -----------------------------------------------------------------------	
+	nError = XnsSdkDevice.Disconnect(hDevice);
+	WLOGD("Disconnect():: " + "(" + nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");	
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Media Open Function.
+// ----------------------------------------------------------------------- 
+function Do_MediaOpen()
+{	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Returns the connection status of the device.
+	// -----------------------------------------------------------------------
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD ("Not connected..")
+		return;
+	}
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Returns the type of control module corresponding to the control ID.
+	// Control Module : DVR Check
+	// -----------------------------------------------------------------------
+	if(XnsSdkDevice.GetControlType(hDevice, 1) == 1)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Returns the number of control modules. 
+		// The application can get the number of specific type of control modules, 
+		// and can get also the whole number of video recorders or cameras.
+		// -----------------------------------------------------------------------
+		nCount = XnsSdkDevice.GetControlCount(hDevice, 8);
+		for(i = 0; i < nCount; i++)
+		{
+			// [ XNS ACTIVEX HELP ]
+			// -----------------------------------------------------------------------
+			// Returns the capabilities of the control module.
+			// -----------------------------------------------------------------------
+			if(XnsSdkDevice.GetControlCapability(hDevice, i + 2, 37) != 0)
+			{
+				// [ XNS ACTIVEX HELP ]
+				// -----------------------------------------------------------------------
+				// When called, it will start getting media streams from the device.
+				// The receiving media streams will, then, be forwarded to the XnsSdkWindow 
+				// component that will play the streams after decoding.
+				// phMediaSource is needed to link the stream data with XnsSdkWindow. 
+				// The value can be obtained from a parameter (out-parameter) of OpenMedia(). 
+				// When XnsSdkWindow receives this value, it can get stream data from the device.
+				// phMediaSource is also used for controlling playback of multimedia files. 
+				// As a result, the application should keep this value at all times.
+				// -----------------------------------------------------------------------
+				hMediaSource = XnsSdkDevice.OpenMediaEx(hDevice, i + 2, 1, 0, 0);
+				if(hMediaSource != 0)
+				{
+					WLOGD("Media Open Success.");
+					nControlID = i + 2;	
+				}
+				else
+				{
+					WLOGD("Media Open Failed.");
+				}
+				return;
+			}
+		}
+	}
+	// Control Module : Network Camera or Encoder Box (video Server)
+	else if(XnsSdkDevice.GetControlType(hDevice, 1) == 2 || XnsSdkDevice.GetControlType(hDevice, 1) == 4)
+	{
+		nCount = XnsSdkDevice.GetControlCount(hDevice, 16);
+		for (i = 0; i < nCount; i++)
+		{
+			if(XnsSdkDevice.GetControlCapability(hDevice, i + 4, 37) == 1)
+			{
+				hMediaSource = XnsSdkDevice.OpenMediaEx(hDevice, i + 4, 1, 0, 0);
+				if(hMediaSource != 0)
+				{
+					WLOGD("Media Open Success.");
+					nControlID = i + 4;	
+				}
+				else
+				{
+					WLOGD("Media Open Failed");
+				}
+				return;
+			}
+		}	
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Media Close Function.
+// ----------------------------------------------------------------------- 
+function Do_MediaClose()
+{	
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD("Not Connected..");
+		return;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Check if there exists stream source.
+	// -----------------------------------------------------------------------
+	if (XnsSdkWindow.IsMedia() == 1)	
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Stops receiving the stream data from the media source handle.  
+		// -----------------------------------------------------------------------
+		hMediaSource = XnsSdkWindow.Stop();	
+	}
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Terminates transferring media stream data from the device. The media 
+	// stream data will be separated by hMediaSource 
+	// (i.e., phMediaSource of OpenMedia()).
+	// -----------------------------------------------------------------------
+	nError = XnsSdkDevice.CloseMedia(hDevice, hMediaSource);
+	if(nError == 0)
+	{
+		hMediaSource = 0;
+		WLOGD("Media Close Success.");
+	}
+	else
+	{
+		WLOGD("Media Close Failed.");
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Play Video Function.
+// ----------------------------------------------------------------------- 
+function Do_PlayVideo()
+{	
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD("Not Connected..");
+		return;
+	}
+	
+	if(XnsSdkWindow.IsMedia() == 1)
+	{
+		WLOGW("Already Media Play..");
+		return;
+	}
+	
+	if(hMediaSource != 0)
+	{
+		// [ XNS ACTIVEX HELP ]
+		// -----------------------------------------------------------------------
+		// Adds the media source handle to XnsSdkWindow. 
+		// The media source handle is created by XnsSdkDevice. 
+		// If the application calls XnsSdkDevice::OpenMedia(), 
+		// it will receive media stream from the device and return the MediaSource 
+		// handle. The application uses uses Start() to forward the mediasource 
+		// handle to XnsSdkWindow so that XnsSdkWindow can obtain stream data. 
+		// -----------------------------------------------------------------------
+		nError = XnsSdkWindow.Start(hMediaSource);
+		if(nError == 0)
+		{
+			WLOGW("Medida Play Success.");
+		}
+		else
+		{
+			WLOGW("Media Play Failed.");
+		}
+	}
+	else
+	{
+		WLOGD("No Media Stream..");
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// for Stop Video Function.
+// ----------------------------------------------------------------------- 
+function Do_StopVideo()
+{	
+	if(XnsSdkDevice.GetDeviceStatus(hDevice) != 1)
+	{
+		WLOGD("Not Connected..");
+		return;
+	}
+	
+	if(XnsSdkWindow.IsMedia() == 0)
+	{
+		WLOGD("No Media Play..");
+		return;
+	}
+	
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Stops receiving the stream data from the media source handle.  
+	// -----------------------------------------------------------------------
+	hMediaSource = XnsSdkWindow.Stop();
+	if(hMediaSource != 0)
+	{
+		WLOGW("Media Play Stopped.");	
+	}
+}
+
+
+// XNS ACTIVEX EVENT 
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// This event occurs if the device status has changed. It occurs if the
+// application uses Connect() to connect or reconnect to the device after
+// disconnected. When reconnecting, the third argument nDeviceStatus is
+// true, all media must be reopened using ReopenAllStream().
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnDeviceStatusChanged(nDeviceID, nErrorCode, nDeviceStatus, nHddCondition)
+{
+	WLOGD("OnDeviceStatusChanged() EVENT:: device_id=" + nDeviceID + ", status=" + nDeviceStatus + ", error=" + nErrorCode + "[" + XnsSdkDevice.GetErrorString(nErrorCode) + "]");
+	if(nErrorCode == 0 && nDeviceStatus == 1) 
+	{
+		WLOGD("Connected...");
+		return;
+	}
+}
+
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ Device Control Event.
+// If the application has failed in non-blocking connection using ConnectNonBlock(),
+// the OnConnectFailed event occurs.
+// As Connect() returns an immediate error message if failed,
+// it does not trigger this event.
+// -----------------------------------------------------------------------
+function XnsSdkDevice::OnConnectFailed(nDeviceID, nErrorCode)
+{
+	WLOGD("OnConnectFailed() EVENT:: device_id=" + nDeviceID + ", error=" + nErrorCode + "[" + XnsSdkDevice.GetErrorString(nErrorCode) + "]");
+}
+
+
+ function Do_GetPtzPosNormalize()
+ {
+ 	nError = XnsSdkDevice.GetPtzPosNormalize(hDevice, nControlID);
+ 	
+ 	WLOGD("GetPtzPosNormalize() :: ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ 	
+ }
+ 
+ function XnsSdkDevice::OnGetPtzPosNormalize(nDeviceID, nControlID, nErrorCode, fPan, fTilt, fZoom)
+ {
+ 
+ 	Pan.value 	= fPan;
+ 	Tilt.value	= fTilt;
+ 	Zoom.value	= fZoom;
+ 	WLOGD("OnGetPtzPosNormalize() EVENT:: device_id=" + nDeviceID + ", ControlID=" + nControlID + ", error=" + nErrorCode + "[" + XnsSdkDevice.GetErrorString(nErrorCode) + "]");
+ 	
+ }
+ 
+ function Do_SetPtzPosNormalize()
+ {
+ 	fPan	= Pan.value;
+ 	fTilt	= Tilt.value;
+ 	fZoom	= Zoom.value;
+ 	
+ 	nError = XnsSdkDevice.SetPtzPosNormalize(hDevice, nControlID, fPan, fTilt, fZoom);
+
+ 	WLOGD("SetPtzPos() ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+ 	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Moves the camera to the predefined PTZ position. This function is 
+	// valid as long as the application is receiving media stream from the 
+	// camera. 
+	// -----------------------------------------------------------------------
+	//	Command			Value	Description
+	// -----------------------------------------------------------------------
+	//	XPTZ_UP			1		Tilt up
+	//	XPTZ_DOWN		2		Tilt down
+	//	XPTZ_LEFT		3		Pan left
+	//	XPTZ_RIGHT		4		Pan right
+	//	XPTZ_UPLEFT		5		Tilt up and pan left
+	//	XPTZ_UPRIGHT	6		Tilt up and pan right
+	//	XPTZ_DOWNLEFT	7		Tilt down and pan left
+	//	XPTZ_DOWNRIGHT	8		Tilt down and pan right
+	//	XPTZ_ZOOMIN		9		Zoom in
+	//	XPTZ_ZOOMOUT	10		Zoom out
+	//	XPTZ_STOP		11		Stop the PTZ moving
+	//	XPTZ_FOCUS_NEAR	12		Focus near
+	//	XPTZ_FOCUS_FAR	13		Focus far
+	//	XPTZ_FOCUS_STOP	14		Stop focus moving
+	//	XPTZ_IRIS_OPEN	15		Open iris
+	//	XPTZ_IRIS_CLOSE	16		Close iris
+	// -----------------------------------------------------------------------
+ function Do_Ptz_Up()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 1, nPtzSpeed);
+
+ 	WLOGD("Ptz Up ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_Down()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 2, nPtzSpeed);
+
+ 	WLOGD("Ptz Down ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_Left()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 3, nPtzSpeed);
+
+ 	WLOGD("Ptz Left ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_Right()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 4, nPtzSpeed);
+
+ 	WLOGD("Ptz Right ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_UpLeft()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 5, nPtzSpeed);
+
+ 	WLOGD("Ptz UpLeft ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+ function Do_Ptz_UpRight()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 6, nPtzSpeed);
+
+ 	WLOGD("Ptz UpRight ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_DownLeft()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 7, nPtzSpeed);
+
+ 	WLOGD("Ptz DownLeft ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_DownRight()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 8, nPtzSpeed);
+
+ 	WLOGD("Ptz DownRight ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+  function Do_Ptz_ZoomIn()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 9, nPtzSpeed);
+
+ 	WLOGD("Ptz ZoomIn ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+ function Do_Ptz_ZoomOut()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 10, nPtzSpeed);
+
+ 	WLOGD("Ptz ZoomOut ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+ function Do_Ptz_Stop()
+ {
+    nError = XnsSdkDevice.ControlPtz(hDevice, nControlID, 11, nPtzSpeed);
+
+ 	WLOGD("Ptz Move Stop ("+ nError + ") [" + XnsSdkDevice.GetErrorString(nError) + "]");
+ }
+</script>   
+</TD></TR>
+
+  <TR>
+    
+    <TD vAlign=top align=left colSpan=2><TEXTAREA style="WIDTH: 765; HEIGHT: 180px" name=LogArea rows=5 cols=100></TEXTAREA>&nbsp;&nbsp;
+    </TD></TR></TABLE>
+
+</BODY>
+</HTML>

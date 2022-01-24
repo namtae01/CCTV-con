@@ -1,0 +1,268 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean (Korea) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\Event.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Event.ico"
+#endif    // Korean (Korea) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Event"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "Event, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_ALARM_EVENT_DIALOG DIALOGEX 0, 0, 403, 457
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Event"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_MODEL_LIST,293,20,93,17,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_IPADDRESS1,"SysIPAddress32",WS_TABSTOP,293,53,93,16
+    EDITTEXT        IDC_EDIT_PORT,293,72,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_USER_ID,293,110,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,293,129,93,16,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,236,154,71,14
+    PUSHBUTTON      "DisConnect",IDC_BUTTON_DISCONNECT,315,154,71,14,WS_DISABLED
+    PUSHBUTTON      "Play",IDC_BUTTON_PLAY,236,171,71,14,WS_DISABLED
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,315,171,72,14,WS_DISABLED
+    LISTBOX         IDC_LIST_STATUS_MESSAGE,7,192,389,47,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAB_ALARM_EVENT,"SysTabControl32",0x0,7,248,389,203
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL1,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,7,7,216,143
+    CONTROL         "",IDC_XNSSDKDEVICECTRL1,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,201,158,22,10
+    LTEXT           "ActiveX Control Log",IDC_STR_STATUS,7,182,81,8
+    GROUPBOX        "- Connect Info -",IDC_STATIC_CONNECTINFO_GROUP,231,7,165,143
+    LTEXT           "Model",IDC_STR_MODEL,239,20,47,9
+    LTEXT           "IP",IDC_STR_IP,239,56,47,9
+    LTEXT           "VNP Port",IDC_STR_PORT,239,75,47,9
+    LTEXT           "User ID",IDC_STR_USER_ID,239,113,47,9
+    LTEXT           "Password",IDC_STR_PASSWORD,239,132,47,9
+    LISTBOX         IDC_LIST_SENSOR_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_MOTION_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_IV_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_VIDEOLOSS_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_SYSTEM_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_DEVICE_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Alarm Out On",IDC_CHECK_SET_ALARM,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,322,247,64,13
+    LISTBOX         IDC_LIST_AMD_EVENT,11,266,380,179,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Protocol",IDC_STR_PROTOCOL,239,39,47,9
+    EDITTEXT        IDC_EDIT_PORT2,293,91,93,16,ES_AUTOHSCROLL
+    LTEXT           "HTTP Port",IDC_STR_PORT2,239,94,47,9
+    CONTROL         "SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,294,36,52,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "Event.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "Event.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_ALARM_EVENT_DIALOG, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 310
+        VERTGUIDE, 315
+        VERTGUIDE, 386
+        VERTGUIDE, 396
+        BOTTOMMARGIN, 455
+        HORZGUIDE, 50
+        HORZGUIDE, 128
+        HORZGUIDE, 145
+        HORZGUIDE, 150
+        HORZGUIDE, 214
+        HORZGUIDE, 227
+        HORZGUIDE, 420
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_ALARM_EVENT_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKWINDOWCTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x217d, 0x0000, 0x17fa, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKDEVICECTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x0369, 0x0000, 0x01a7, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About Event..."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\Event.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

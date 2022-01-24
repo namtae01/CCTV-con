@@ -1,0 +1,282 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\NVRTextPlayBack.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\NVRTextPlayBack.ico"
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About NVRTextPlayBack"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "NVRTextPlayBack, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_NVRTEXTPLAYBACK_DIALOG DIALOGEX 0, 0, 658, 457
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "NVRTextPlayBack"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL1,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,7,7,295,189
+    GROUPBOX        "- Connect Info -",IDC_STATIC_CONNECTINFO_GROUP,309,7,165,166
+    COMBOBOX        IDC_COMBO_MODEL_LIST,372,20,93,17,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,372,54,93,16
+    EDITTEXT        IDC_EDIT_PORT,372,73,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PORT2,372,92,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ID,372,111,93,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PW,372,130,93,16,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Model",IDC_STR_MODEL,318,22,47,9
+    LTEXT           "IP",IDC_STR_IP,318,58,47,9
+    LTEXT           "Device Port",IDC_STR_PORT,318,77,47,9
+    LTEXT           "HTTP Port",IDC_STR_PORT2,318,96,47,9
+    LTEXT           "User ID",IDC_STR_USER_ID,318,115,47,9
+    LTEXT           "Password",IDC_STR_PASSWORD,318,134,47,9
+    GROUPBOX        "Media Playback",IDC_STATIC_RECORD_FILE,309,178,165,132
+    CONTROL         "",IDC_MONTHCALENDAR1,"SysMonthCal32",MCS_DAYSTATE | MCS_NOTODAY | MCS_NOTODAYCIRCLE | WS_TABSTOP,318,211,147,92
+    GROUPBOX        "Play Record File",IDC_STATIC_PLAY_RECORDFILE,308,381,166,69
+    LISTBOX         IDC_LIST_RECDATA,318,315,147,61,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_SLIDER_RECTIME,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_DISABLED | WS_TABSTOP,318,391,98,13
+    PUSHBUTTON      "<|",IDC_BUTTON_STEP_BACK,318,407,33,13
+    PUSHBUTTON      "<",IDC_BUTTON_BP,355,407,34,13
+    PUSHBUTTON      "||",IDC_BUTTON_STOP,393,407,34,13
+    PUSHBUTTON      "|>",IDC_BUTTON_FOR,431,407,34,13
+    COMBOBOX        IDC_COMBO_PLAY_SPEED,318,433,147,15,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Play Speed",IDC_STR_PLAYSPEED,318,421,47,9
+    LTEXT           "Status Message",IDC_STR_STATUS_MESSAGE,7,205,86,9
+    LTEXT           "",IDC_STR_CURTIME,417,385,48,13
+    PUSHBUTTON      "DisConnect",IDC_BUTTON_DISCONNECT,394,151,71,17
+    PUSHBUTTON      "Check Calendar",IDC_BUTTON_CHECK_CALENDAR,318,190,75,17
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,318,151,71,17
+    COMBOBOX        IDC_COMBO_TRACK,437,194,28,20,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Track ID: ",IDC_STR_TrackID,403,195,30,9
+    LTEXT           "Protocol",IDC_STR_PROTOCOL,318,39,47,9
+    CONTROL         "",IDC_XNSSDKDEVICECTRL1,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,242,201,60,9
+    CONTROL         "   SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,372,37,50,14
+    GROUPBOX        "TEXT Playback",IDC_STATIC_RECORD_FILE_TEXT,484,168,162,142
+    CONTROL         "",IDC_MONTHCALENDAR_TEXT,"SysMonthCal32",MCS_DAYSTATE | MCS_NOTODAY | MCS_NOTODAYCIRCLE | WS_TABSTOP,491,211,147,92
+    PUSHBUTTON      "Check Calendar",IDC_BUTTON_CHECK_CALENDAR_TEXT,489,177,75,17
+    COMBOBOX        IDC_COMBO_TEXT,548,18,90,14,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN_TEXT,493,34,50,14
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE_TEXT,588,34,50,14
+    GROUPBOX        "TEXT Control",IDC_STATIC_GRP_TEXT,484,7,161,46
+    LTEXT           "TEXT Device",IDC_STR_TEXT_DEVICE,493,18,41,12
+    EDITTEXT        IDC_EDIT_TEXT,484,63,161,101,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Text",IDC_STATIC,484,55,60,8
+    EDITTEXT        IDC_EDIT_LOG_WIN,7,218,295,232,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+    LISTBOX         IDC_LIST_RECDATA_TEXT,492,316,146,134,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "AllMatch",IDC_CHECK_ALL_MATCH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,574,180,39,12
+    LTEXT           "TEXT",IDC_STR_TEXT,491,198,33,9
+    EDITTEXT        IDC_EDIT_SEARCH_TEXT,518,196,120,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "NVRTextPlayBack.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "NVRTextPlayBack.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_NVRTEXTPLAYBACK_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 650
+        VERTGUIDE, 474
+        VERTGUIDE, 484
+        VERTGUIDE, 501
+        VERTGUIDE, 564
+        VERTGUIDE, 638
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 450
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_NVRTEXTPLAYBACK_DIALOG DLGINIT
+BEGIN
+    IDC_XNSSDKWINDOWCTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x2dc9, 0x0000, 0x1fbb, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKDEVICECTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x094d, 0x0000, 0x018d, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About NVRTextPlayBack..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\NVRTextPlayBack.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

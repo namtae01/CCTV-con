@@ -1,0 +1,65 @@
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  Copyright(c) 2012 by Hanwha Techwin, Inc.                                          -->
+<!--                                                                                      -->
+<!--  This software is copyrighted by, and is the sole property of Hanwha Techwin.       -->
+<!--  All rights, title, ownership, or other interests in the software remain the         -->
+<!--  property of Hanwha Techwin. This software may only be used in accordance with      -->
+<!--  the corresponding license agreement. Any unauthorized use, duplication,             -->
+<!--  transmission, distribution, or disclosure of this software is expressly             -->
+<!--  forbidden.                                                                          -->
+<!--                                                                                      -->
+<!--  This Copyright notice may not be removed or modified without prior written          -->
+<!--  consent of Hanwha Techwin.                                                         -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin reserves the right to modify this software without notice.          -->
+<!--                                                                                      -->
+<!--  Hanwha Techwin, Inc.                                                               -->
+<!--  KOREA                                                                               -->
+<!--  http://www.samsungtechwin.co.kr                                                     -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+<!--  @ File Name : StartUp.html                                                          -->
+<!--  @ File Description : StartUp Source Code File.                                      -->
+<!--                       Define the entire function.                                    -->
+<!--  /////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<html>
+<!--  BODY //////////////////////////////////////////////////////////////////////////////	-->
+<body onload="window_onload()">
+
+<!--  Define Xns Control ////////////////////////////////////////////////////////////////	-->
+<OBJECT ID=XnsSdkWindow width=640 height=480 classid=clsid:C3F99E59-433D-4A79-A188-B36ACE8F78F8></OBJECT>
+<OBJECT ID=XnsSdkDevice height=10 width=10 classid=clsid:9BED9251-E8E7-4B67-B281-ADC06BA7988D></OBJECT>
+
+<!--  SCRIPT ////////////////////////////////////////////////////////////////////////////	-->
+<script language="javascript">
+
+// [ XNS ACTIVEX HELP ]
+// -----------------------------------------------------------------------
+// @ JavaScript Window Load Event.
+// ----------------------------------------------------------------------- 
+function window_onload()
+{
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the DLL files. 
+	// For this, XnsActiveX library requires config.xml, device.xml, 
+	// and xns.xml files and the DLL file list should be mentioned 
+	// in Xns.xml file. The path of the DLL file can not exceed 512 bytes
+	// in length. The XnsActiveX library searches for xns.xml using 
+	// XnsSDKDevice.ocx installed in "{$SDK path}\Config" folder.
+	// -----------------------------------------------------------------------
+	XnsSdkDevice.Initialize();
+
+	// [ XNS ACTIVEX HELP ]
+	// -----------------------------------------------------------------------
+	// Initializes the XnsSdkWindow control. 
+	// Namely, this will specify the window handle in order to display 
+	// images on the screen. 
+	// -----------------------------------------------------------------------
+	XnsSdkWindow.Initialize(0, 0);  
+}
+
+</script>	  
+</body>
+</html>

@@ -1,0 +1,303 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\BackupEx.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\BackupEx.ico"
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_PROGRESS DIALOGEX 0, 0, 230, 49
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDC_BUTTON_PROGRESS_CANCEL,174,28,50,14
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,10,188,14
+    LTEXT           "100 %",IDC_STR_PERCENT,201,13,23,12
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About BackupEx"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "BackupEx, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_DIALOG_MAIN DIALOGEX 0, 0, 433, 311
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "BackupEx"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_MODEL_LIST,319,20,97,16,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_GROUP | WS_TABSTOP,319,55,97,13
+    EDITTEXT        IDC_EDIT_VNP_PORT,319,72,97,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HTTP_PORT,320,91,97,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ID,319,110,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PW,319,129,97,15,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "CONNECT",IDC_BUTTON_CONNECT,270,149,64,16
+    PUSHBUTTON      "DISCONNECT",IDC_BUTTON_DISCONNECT,352,150,64,15
+    PUSHBUTTON      "BACKUP",IDC_BUTTON_BACKUP,269,189,38,15
+    PUSHBUTTON      "Play",IDC_BUTTON_PLAY,337,189,36,15
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,380,189,36,15
+    GROUPBOX        "- Connect Info -",IDC_STATIC_CONNECTINFO_GROUP,261,7,162,167
+    LTEXT           "Model",IDC_STR_MODEL,270,23,47,9
+    LTEXT           "IP",IDC_STR_IP,270,57,47,9
+    LTEXT           "VNP Port",IDC_STR_PORT,270,75,47,9
+    LTEXT           "User ID",IDC_STR_USER_ID,270,113,47,9
+    LTEXT           "Password",IDC_STR_PASSWORD,270,132,47,9
+    CONTROL         "",IDC_XNSSDKDEVICECTRL,
+                    "{9BED9251-E8E7-4B67-B281-ADC06BA7988D}",WS_TABSTOP,199,185,52,15
+    CONTROL         "",IDC_XNSSDKWINDOWCTRL,
+                    "{C3F99E59-433D-4A79-A188-B36ACE8F78F8}",WS_TABSTOP,7,7,244,167
+    LTEXT           "Status Log",IDC_STR_STATUS_LOG,7,205,42,11
+    EDITTEXT        IDC_EDIT_STATUS_LOG,7,217,416,87,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    GROUPBOX        "Backup",IDC_STATIC_BACKUP_GROUP,261,178,54,32
+    GROUPBOX        "REC Play",IDC_STATIC_REC_PLAY_GROUP,327,178,96,32
+    LTEXT           "Protocol",IDC_STR_PROTOCOL,270,40,47,9
+    LTEXT           "HTTP Port",IDC_STR_PORT2,270,94,47,9
+    CONTROL         "   SUNAPI",IDC_CHECK_SUNAPI,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,319,37,52,14
+END
+
+IDD_DIALOG_BACKUP DIALOGEX 0, 0, 201, 120
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Backup file"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_DATETIMEPICKER_START,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,17,69,67,15
+    CONTROL         "",IDC_DATETIMEPICKER_END,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,116,69,66,15
+    DEFPUSHBUTTON   "Ok",IDC_BUTTON_BACKUP_OK,116,97,34,14
+    PUSHBUTTON      "Cancel",IDC_BUTTON_BACKUP_CANCEL,159,97,33,14
+    GROUPBOX        "Format",IDC_STATIC,7,6,86,42
+    GROUPBOX        "Start Time",IDC_STATIC,7,55,86,40
+    GROUPBOX        "End Time",IDC_STATIC,107,55,85,40
+    CONTROL         "",IDC_DATETIMEPICKER_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,116,21,66,15
+    GROUPBOX        "Start Day",IDC_STATIC,107,6,86,41
+    CONTROL         "SEC",IDC_RADIO_SEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,32,17,34,11
+    CONTROL         "REC",IDC_RADIO_REC,"Button",BS_AUTORADIOBUTTON,32,27,34,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_DIALOG_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        VERTGUIDE, 423
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 304
+        HORZGUIDE, 141
+        HORZGUIDE, 142
+        HORZGUIDE, 168
+        HORZGUIDE, 174
+    END
+
+    IDD_DIALOG_BACKUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        VERTGUIDE, 17
+        VERTGUIDE, 84
+        VERTGUIDE, 94
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 113
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,43,0,0
+ PRODUCTVERSION 1,43,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Hanwha Techwin"
+            VALUE "FileDescription", "XNS ActiveX SDK sample program"
+            VALUE "FileVersion", "1.43.0.0"
+            VALUE "InternalName", "BackupEx.exe"
+            VALUE "LegalCopyright", "COPYRIGHT (C) 2010-2014 HANWHA TECHWIN CO, LTD"
+            VALUE "OriginalFilename", "BackupEx.exe"
+            VALUE "ProductName", "XNS ActiveX SDK"
+            VALUE "ProductVersion", "1.43.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOG_MAIN DLGINIT
+BEGIN
+    IDC_XNSSDKDEVICECTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x0810, 0x0000, 0x027b, 0x0000, 0x0000, 
+0x0000, 
+    IDC_XNSSDKWINDOWCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x25d4, 0x0000, 0x1c02, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About BackupEx..."
+END
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\BackupEx.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
